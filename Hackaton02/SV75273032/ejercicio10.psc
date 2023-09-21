@@ -10,5 +10,6 @@ Algoritmo DeterminarParImpar
         Escribir "El número ingresado es par."
     Sino
         Escribir "El número ingresado es impar."
+        
     FinSi
 FinAlgoritmo
