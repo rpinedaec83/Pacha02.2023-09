@@ -1,3 +1,5 @@
+//Hacer un algoritmo en Pseint que lea un número por el teclado y determinar si tiene tres dígitos.
+
 Algoritmo DeterminarTresDigitos
     Definir numero Como Entero
     
