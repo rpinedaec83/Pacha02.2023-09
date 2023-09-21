@@ -1,5 +1,4 @@
 Proceso Calculadora
-	
 	Escribir "Bienvenido a la calculadora"
 	Escribir "Selecciona la operacion:"
 	Escribir "Para Sumar digita 1"
@@ -32,5 +31,4 @@ Proceso Calculadora
 			Fin Si
 		Fin Si
 	Fin Si
-	
 FinProceso
