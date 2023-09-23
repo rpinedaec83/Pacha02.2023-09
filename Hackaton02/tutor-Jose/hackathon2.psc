@@ -75,48 +75,48 @@
 //FinAlgoritmo
 ///Sistema de menu
 
-Algoritmo SeleccionDeMenu
+//Algoritmo SeleccionDeMenu
 
-	Definir  opcionMenu Como Entero;
+//	Definir  opcionMenu Como Entero;
 	
-	opcionMenu=0
+//	opcionMenu=0
 	
-	Mientras opcionMenu<>4 Hacer
+//	Mientras opcionMenu<>4 Hacer
 		
-		Limpiar Pantalla
-		Escribir  "*********************Menu******************";
-		Escribir "1.Comprar Zapatos";
-		Escribir  "2. Ver Compra";
-		Escribir  "3. Vender Zapatos";
-		Escribir  "4. Salir";
-		leer opcionMenu;
+//		Limpiar Pantalla
+//		Escribir  "*********************Menu******************";
+//		Escribir "1.Comprar Zapatos";
+//		Escribir  "2. Ver Compra";
+//		Escribir  "3. Vender Zapatos";
+//		Escribir  "4. Salir";
+//		leer opcionMenu;
 		
 		
-		Segun  opcionMenu Hacer
-			Caso 1: 
-				Escribir  "Usted esta en el Area de Compras"
-				Escribir  "Presiona una Tecla Para continuar......"
-				Esperar Tecla
-			Caso 2:
-				Escribir "Usted Esta viendo su compra";
-				Escribir  "Presiona una Tecla Para continuar......"
-				Esperar Tecla
-			Caso 3: 
-				Escribir  "Usted esta en el area de venta";
-				Escribir  "Presiona una Tecla Para continuar......"
-				Esperar Tecla
+//		Segun  opcionMenu Hacer
+//			Caso 1: 
+//				Escribir  "Usted esta en el Area de Compras"
+//				Escribir  "Presiona una Tecla Para continuar......"
+//				Esperar Tecla
+//			Caso 2:
+//				Escribir "Usted Esta viendo su compra";
+//				Escribir  "Presiona una Tecla Para continuar......"
+//				Esperar Tecla
+//			Caso 3: 
+//				Escribir  "Usted esta en el area de venta";
+//				Escribir  "Presiona una Tecla Para continuar......"
+//				Esperar Tecla
 			//De Otro Modo : 
 			//	Escribir "Usted no selecciono ninguna opcion valida";
 			//	Escribir  "Presiona una Tecla Para continuar......"
 			//	Esperar Tecla
 				
-		FinSegun
+//		FinSegun
 		
 	
-	Fin Mientras
+//	Fin Mientras
 	
 
-FinAlgoritmo
+//FinAlgoritmo
 
 ///////////////////////////////////////////////////////////////////
 // 1. Hacer un algoritmo en Pseint que lea un número por el teclado y determinar si tiene tres dígitos.
@@ -257,6 +257,32 @@ FinAlgoritmo
 
 
 
+//25. Hacer un algoritmo en Pseint para calcular el factorial de un número de una forma distinta.(Funcion recursiva)
+
+
+
+Funcion valorRetornar <- CalcularFactorialRecursivo(num)
+	
+	si num <=1 Entonces
+		valorRetornar <-1
+	SiNo
+		valorRetornar <- num * CalcularFactorialRecursivo(num - 1 )
+	FinSi
+FinFuncion
+
+
+
+Algoritmo  FactorialRecursivo 
+	Definir num, resultado Como Entero
+	Escribir  "Ingrese un numero para calcular su factorial";
+	Leer  num;
+	
+	
+	resultado = CalcularFactorialRecursivo(num);
+	
+	Escribir  "El Factorial de ", num, " es: ",resultado
+	
+FinAlgoritmo
 
 
 
