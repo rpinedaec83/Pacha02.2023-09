@@ -38,6 +38,8 @@ suma();
 let nombre = "Roberto"
 let apellido = 'Pineda'
 let nombre_completo = `Roberto David
+
+
 Pineda Lopez`
 
 let suma_caracteres = nombre+apellido;
@@ -79,7 +81,7 @@ console.log(res)
 // or
 res = estado_civil || habido;
 console.log(res)
-//
+// not
 res = estado_civil &&  !habido;
 console.log(res)
 
@@ -150,4 +152,5 @@ console.log(newText)
 apellido = apellido.toUpperCase();
 console.log(apellido)
 
+aoelldo = apellido.toLowerCase()
 
