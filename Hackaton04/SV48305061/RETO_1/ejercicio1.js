@@ -4,3 +4,4 @@ let resultado= numero1+numero2;
 return resultado;
 }
 console.log(suma(13,21))
+
