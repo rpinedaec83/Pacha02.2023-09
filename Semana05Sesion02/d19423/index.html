@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1 id="nombre_aerolinea"></h1>
     <h2 id="ubicacion"></h2>
 
     <div id="div_reserva" style="display: none;">
-        
+
         <label for="">Origen:</label>
         <label for="" id="origen"></label>
         <br>
@@ -42,11 +44,40 @@
     <button id="reservar">Reservar</button>
     <script src="script.js"></script>
     <script>
+        
+        
+        let ubicacionPagina;
+        const funcionInit = () => {
+            if (!"geolocation" in navigator) {
+                return alert("Tu navegador no soporta el acceso a la ubicación. Intenta con otro");
+            }
+
+            const onUbicacionConcedida = ubicacion => {
+                console.log("Tengo la ubicación: ", ubicacion);
+                ubicacionPagina = ubicacion;
+            }
+
+            const onErrorDeUbicacion = err => {
+                console.log("Error obteniendo ubicación: ", err);
+            }
+
+            const opcionesDeSolicitud = {
+                enableHighAccuracy: true, // Alta precisión
+                maximumAge: 0, // No queremos caché
+                timeout: 5000 // Esperar solo 5 segundos
+            };
+            // Solicitar
+            navigator.geolocation.getCurrentPosition(onUbicacionConcedida, onErrorDeUbicacion, opcionesDeSolicitud);
+            
+            
+        };
+        funcionInit();
         let parametros = {
-            Nombre:"JetSmart",
-            Ubicacion: "Lima"
-        }
+                Nombre: "JetSmart",
+                Ubicacion: ubicacionPagina
+            }
         Aerolinea.init(parametros)
     </script>
 </body>
+
 </html>
