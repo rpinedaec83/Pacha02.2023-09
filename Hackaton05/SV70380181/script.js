@@ -7,4 +7,8 @@ Tomar en cuenta los siguientes casos de uso:
 - Los repuestos se agegaran a la reparacion de telefono
 - Se debe mostrar el estado del equipo en sus diferentes estaciones de trabajo*/
 
+function telefono()
+{
+    
+}
  
