@@ -1,4 +1,5 @@
-const Aerolinea = function () {
+const Aerolinea = function () 
+{
     let Nombre;
     let Ubicacion;
     let aviones = [];
