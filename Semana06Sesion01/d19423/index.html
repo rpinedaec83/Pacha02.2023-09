@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="titulo">Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="resultado"></div>
+    <p>Este es mi primer parrafo</p>
+    <p>Este es mi segundo parrafo</p>
+    <p>Este es mi tercer parrafo</p>
+    <div class="resultado2 tipoletra">
+        <table>
+            <tr>
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+        </table>
+    </div>
+    <div class="resultado2">
+        <div>
+            <span onclick="this.parentNode.style.display = 'none';">x</span>
+        </div>
+    </div>
+
+    <button onclick="childfunction()">Copy</button>
+    <p>Click "Copy" to copy an item from one list to another.</p>
+
+    <ul id="myList1">
+        <li>Coffee</li>
+        <li>Tea</li>
+    </ul>
+    <ul id="myList2">
+        <li>Water</li>
+        <li>Milk</li>
+    </ul>
+
+    <div id="text"></div>
+    <div id="atributo">
+        texto del mi div
+    </div>
+    <input id="txt_nombre" type="text">
+    <button id="boton_prueba">Este es mi boton de prueba</button>
+    <script src="script.js"></script>
+    <script>
+        let parametros = {
+            Nombre: "Roberto Pineda",
+            Curso: "PachaQTec 2023-09"
+        }
+        DOM.init(parametros)
+    </script>
+    
+</body>
+
+</html>
