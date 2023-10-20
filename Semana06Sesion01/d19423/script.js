@@ -92,3 +92,4 @@ let node = document.getElementById("myList2").childNodes;
  let primero = document.getElementById("myList2").firstChild
  console.log(primero)
 }
+/*a*/
