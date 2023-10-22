@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="titulo">Document</title>
+</head>
+<body>
+    <h1 id="titulo1"></h1>
+    <p>
+    <label for="sedes">Seleciona la Sede:</label>
+    <select id="sedes">
+      <option value="lima">Lima</option>
+      <option value="tumbes">Tumbes</option>
+      <option value="arequipa">Arequipa</option>
+      <option value="ica">Ica</option>
+    </select> 
+    </p>
+    <label id="nombre_cliente">Nombres: </label>
+    <input type="text" name="nombre" id="nombre_cliente">
+    <label id="apellido_cliente">Apellidos: </label>
+    <input type="text" name="apellido" id="apellido_cliente">
+    <p>
+    <label id="dni">DNI: </label>
+    <input type="text" name="DNI" id="dni">
+    </p>
+    <label id="marca_telefono">Marca del telefono</label>
+    <input  type="text" name="marca" id="marca_telefono">
+    <label id="imei_cliente">IMEI: </label>
+    <input type="text" name="imei" id="imei_cliente">
+
+    <script src="sv-48305061.js"></script>
+    <script>
+        let parametros={
+        Nombre: "Servicio Tecnico"
+        }
+        DOM.init(parametros)
+    </script>
+</body>
+</html>

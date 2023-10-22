@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="nombre_de_la_tienda"></h1>
+    <h2 id="ubicacion"></h2>
+
+    <form action="" name="formulario" method="get">
+        <label id="nombre_cliente">Nombres: </label>
+        <input type="text" name="nombres" id="nombre_cliente" required>
+        <label id="apellido_cliente">Apellidos: </label>
+        <input type="text" name="apellidos" id="apellido_cliente" required>
+        <label id="dni_cliente">Dni: </label>
+        <input type="text" name="dnis" id="dni_cliente" required>
+        <label id="marca_cliente">Marca de telefono: </label>
+        <input type="text" name="marcas" id="marca_cliente" required>
+        <label id="imei_cliente">Codigo de IMEI: </label>
+        <input type="text" name="imeis" id="imei_cliente" required>
+        <p><input type="submit" id="enviar" name="enviar" value="Enviar" required></p>
+    </form>
+    <h3>Primer-Diagnostico</h3>
+    <form action="" name="primer_diagnostico" method="get">
+        <p><label id="diagnostico">Escribe el diagnostico:</label></p>
+        <input type="text" name="diagnostico0" id="diagnostico" required>
+        <input type="submit" id="enviar" name="enviar" value="Enviar" required>
+    </form>
+    <h3>Pagos</h3>
+    <form action="" name="paga_cliente" method="get">
+        <p><label id="pago_diagnostico1">Digite el pago:</label></p>
+        <input type="text" name="pago_diag" id="pago_diagnostico1" required>
+        <p><label id="pago_clien">Digite el pago del cliente:</label></p>
+        <input type="text" name="pago_clien" id="pago_clien" required>
+        <p></p><input type="submit" id="pagar" name="pagar" value="Pagar" required></p>
+    </form>
+    <div>
+        <input type="button" name="boton"  value="Estado" onclick="document.getElementById(`estadotele`)">
+               <p id="estadotele">Aqui se visualizara</p>
+    </div>
+
+    <script src="sv-48305061.js"></script>
+    <script>
+        let parametros = {
+            Nombre: "ServiciosArca",
+            Ubicacion: "Lima"
+        }
+        ServiciosArca.init(parametros)
+    </script>
+</body>
+
+</html>
