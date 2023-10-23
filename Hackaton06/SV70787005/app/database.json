@@ -1,0 +1,156 @@
+{
+    "bloqueados":[
+      {
+        "operador": "claro",
+        "imei": "028403243",
+        "motivo": "perdida"
+      },
+      {
+        "operador": "movistar",
+        "imei": "028403242",
+        "motivo": "perdida"
+      },
+      {
+        "operador": "bitel",
+        "imei": "028403240",
+        "motivo": "perdida"
+      },
+      {
+        "operador": "entel",
+        "imei": "11111028403246",
+        "motivo": "perdida"
+      }
+    ],
+    "pagos":[
+      {
+        "id":1,
+        "codigo":"001234",
+        "fecha":"2023-10-20",
+        "monto":"50",
+        "cta_pago":"INTERBANK"
+      },
+      {
+        "id":2,
+        "codigo":"001235",
+        "fecha":"2023-10-20",
+        "monto":"50",
+        "cta_pago":"BBVA"
+      },
+      {
+        "id" :3,
+        "codigo":"001236",
+        "fecha":"2023-10-20",
+        "monto":"50",
+        "cta_pago":"BCP"
+      },
+      {
+        "id" : 4,
+        "codigo":"001237",
+        "fecha":"2023-10-21",
+        "monto":"50",
+        "cta_pago":"INTERBANK"
+      },
+      {
+        "id" : 5,
+        "codigo":"001238",
+        "fecha":"2023-10-21",
+        "monto":"50",
+        "cta_pago":"BCP"
+      }
+    ],
+    "clientes":[
+      {
+        "id" : 1,
+        "apellidos" : "GARIBAY PALOMINO",
+        "nombres" : "GERARDO ENRIQUE",
+        "dni" : "70787005",
+        "celular" : "959913931",
+        "correo" : "gerardo210299@gmail.com"
+      },
+      {
+        "id" : 2,
+        "apellidos" : "LOPEZ LOPEZ",
+        "nombres" : "LUISA",
+        "dni" : "70787006",
+        "celular" : "959913932",
+        "correo" : "lopez@gmail.com"
+      }
+    ],
+    "solicitudes":[
+      {
+        "id" : 1,
+        "cliente_id" : 2,
+        "pago_id":1,
+        "codigo_solicitud" : "SOL0000001",
+        "imei" : "028403243",
+        "serie" : "00001234",
+        "marca":"XIAOMI",
+        "modelo":"NOTE 12",
+        "fecha_registro" : "2023-10-22 08:12:45"
+      },
+      {
+        "id" : 2,
+        "cliente_id" : 1,
+        "pago_id":4,
+        "codigo_solicitud" : "SOL0000002",
+        "imei" : "028403244",
+        "serie" : "00001235",
+        "marca":"XIAOMI",
+        "modelo":"NOTE 13",
+        "fecha_registro" : "2023-10-22 08:12:45"
+      },
+      {
+        "id" : 3,
+        "cliente_id" : 2,
+        "pago_id":4,
+        "codigo_solicitud" : "SOL0000003",
+        "imei" : "028403242",
+        "serie" : "00001231",
+        "marca":"IPHONE",
+        "modelo":"12",
+        "fecha_registro" : "2023-10-23 08:12:45"
+      }
+    ],
+    "diagnostico":[
+      {
+        "id" : 1,
+        "solicitud_id" : 2,
+        "det_diag":"El celular tiene averia en el puerto de carga",
+        "fecha" : "2023-10-25 15:00:34",
+        "trabajador_id" : 1
+      },
+      {
+        "id" : 2,
+        "solicitud_id" : 1,
+        "det_diag":"El dispositivo presento corto en la placa madre",
+        "fecha" : "2023-10-26 15:00:34",
+        "trabajador_id" : 1
+      }
+    ],
+    "trabajador" : [
+      {
+        "id" : 1,
+        "nombre" : "JULIAN",
+        "codigo" : "TB0001",
+        "celular" : "99999999"
+      },
+      {
+        "id" : 2,
+        "nombre" : "JORGE",
+        "codigo" : "TB0002",
+        "celular" : "99999998"
+      },
+      {
+        "id" : 3,
+        "nombre" : "LUIS",
+        "codigo" : "TB0003",
+        "celular" : "99999997"
+      },
+      {
+        "id" : 4,
+        "nombre" : "JULIA",
+        "codigo" : "TB0004",
+        "celular" : "99999996"
+      }
+    ]
+  }
