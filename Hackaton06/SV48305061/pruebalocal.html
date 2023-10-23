@@ -3,15 +3,17 @@
 
 <head>
     <title>Document</title>
+    <h1>Tienda de  reparación</h1>
 </head>
 
 <body>
-
+    <h2>Registro de Cliente: </h2>
     Nombres: </br><input type="text" id="nombres"></br>
     Apellidos: </br><input type="text" id="apellidos"></br>
     DNI: </br><input type="text" id="dnis"></br>
     Marca del telefono: </br><input type="text" id="marcas"></br>
-    Codigo de IMEI: </br><input type="text" id="imeis"></br>
+    Codigo de IMEI: </br><input type="text" id="imeis"><input type="button" id="validacion_imei" value="Validar"></br>
+    <div id="mirar_imei"></div>
     </br><input type="button" id="boton" value="Registrar"></br>
     <div id="registro_nombre"></div>
     <div id="registro_apellido"></div>
@@ -31,8 +33,16 @@
     <h2>Asingar un tecnico</h2>
     <input type="button" id="insertar_tecnico" value="Asignar">
     <div id="ver_tecnico"></div></br>
-    <input type="button" id="insertar_estado" value="Ver estado del telefono">
-    <div id="verestado"></div>
+    <input type="button" id="vdiagnostico" value="Ver Diagnostico">
+    <div id="diagnostico"></div></br>
+    Cobro de repuestos: </br><input type="text" id="pagar_repuestos"></br>
+</br><input type="button" id="irepuestro" value="Insertar Cobro adicional"></br>
+<h2>Pagos de deudas</h2>
+<input type="button" id="vdeuda" value="Ver Deuda del cliente"></br>
+    <div id="deuda"></div></br>
+Pago de deuda: </br><input type="text" id="pagar_deuda"></br>
+</br><input type="button" id="ideuda" value="Insertar pago"></br>
+<div id="verdeuda"></div>
 </body>
 <script src="localstorage.js"></script>
 
