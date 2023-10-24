@@ -1,4 +1,5 @@
-const Aerolinea = function () {
+const Aerolinea = function () //a
+{
     let Nombre;
     let Ubicacion;
     let aviones = [];
@@ -22,7 +23,8 @@ const Aerolinea = function () {
         document.getElementById("reservar").addEventListener("click", reservarVuelo);
     }
 
-    function reservarVuelo(){
+    function reservarVuelo()
+    {
         origen = prompt("Escriba su cuidad de origen")
         destino = prompt("Escriba su ciudad de destino")
         fecha_ida = prompt("Escriba su fecha de ida")
@@ -94,7 +96,8 @@ const Aerolinea = function () {
 
 
 
-class Aviones{
+class Aviones
+{
     constructor(matricula,modelo,nro_asientos,capacidad_minima){
         this.matricula = matricula;
         this.modelo = modelo;
