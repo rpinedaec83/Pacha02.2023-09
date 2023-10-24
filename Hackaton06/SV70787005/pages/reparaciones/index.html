@@ -51,17 +51,12 @@
                             class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page"
-                                    href="#"><i class="fa-solid fa-house"></i>
+                                    href="../admin"><i class="fa-solid fa-house"></i>
                                     Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../servicios"><i
-                                        class="fa-solid fa-building"></i> Servicios</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../pagos"><i
-                                        class="fa-solid fa-store"></i>
-                                    Pagos</a>
+                                <a class="nav-link" href="../reparaciones"><i
+                                        class="fa-solid fa-building"></i> Reparaciones</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../tecnicos"><i class="fa-solid fa-address-book"></i> Tecnicos</a>
@@ -73,14 +68,6 @@
                                     Cerrar Sesion</a>
                             </li>
                         </ul>
-                        <form class="d-flex mt-3" role="search"
-                            id="frm_consultar_tramite">
-                            <input class="form-control me-2" id="inpt_cod_tram"
-                                type="search" placeholder="Codigo de consulta"
-                                aria-label="Search">
-                            <button class="btn btn-success" type="submit"><i
-                                    class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -91,7 +78,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="./admin.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Servicios</li>
+                    <li class="breadcrumb-item active" aria-current="page">Reparaciones</li>
                 </ol>
             </nav>
             <br>
@@ -99,8 +86,8 @@
                 <div class="col-lg-10 mx-auto">
                     <div class="card">
                         <div class="card-header">
-                            <span class="card-title">Servicios Registrados</span>
-                            <button class="btn btn-sm btn-primary float-end" onclick="$('#exampleModal').modal('show')"><i class="fa fa-plus"></i> Agregar</button>
+                            <span class="card-title">Reparaciones Registradas</span>
+                            <button class="btn btn-sm btn-primary float-end" onclick="$('#mdladdServicio').modal('show')"><i class="fa fa-plus"></i> Agregar</button>
                         </div>
                         <div class="card-body">
                             <div class="overflow-auto">
@@ -108,10 +95,10 @@
                                     <thead
                                         style="background-color:#000064;color:white;">
                                         <th>N°</th>
-                                        <th>Codigo</th>
-                                        <th>Cliente</th>
-                                        <th>Celular</th>
-                                        <th>Diagnosticos</th>
+                                        <th>Tramite</th>
+                                        <th>IMEI</th>
+                                        <th>Tecnico</th>
+                                        <th>Operador</th>
                                         <th>Fecha de Registro</th>
                                         <th>Editar</th>
                                     </thead>
@@ -132,7 +119,7 @@
             </div>
         </main>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="mdladdServicio" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -141,18 +128,15 @@
                             data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <ul hidden class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">IMEI</button>
+                              <button class="nav-link active" id="validarImeiTab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">IMEI</button>
                             </li>
                             <li class="nav-item" role="presentation">
                               <button class="nav-link" id="1r_diagnostico" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">1R DIAGNOSTICO</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
+                              <button class="nav-link" id="btn_pagos" data-bs-toggle="tab" data-bs-target="#reparacion_pago" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Pago</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -161,6 +145,9 @@
                                 <form id="frm_validar_imei">
                                         <label for="">Numero IMEI</label>
                                         <input type="text" minlength="9" maxlength="9" class="form-control" id="add_val_imei" name="add_val_imei" required>
+                                        <div id="HelpImei" class="form-text">
+                                            <a target="_blank" class="text-decoration-none" href="../admin">Ver lista de IMEI bloquedoas</a>
+                                        </div>
                                     </div>
                                     <hr>
                                     <button type="submit" class="btn btn-sm btn-primary mt-3">
@@ -173,7 +160,30 @@
                                 <div class="form-group mt-3">
                                 <form id="frm_reg_diagnostico">
                                         <label for="">Diagnostico</label>
-                                        <input type="text" class="form-control" id="add_diagnostico" name="add_diagnostico">
+                                        <input type="text" class="form-control" id="add_diagnostico" name="add_diagnostico" required autocomplete="off">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label for="">Operador</label>
+                                        <select name="add_operador" id="add_operador" class="form-control" required>
+                                            <option value="" hidden>Seleccione</option>
+                                            <option value="Movistar">Movistar</option>
+                                            <option value="Entel">Entel</option>
+                                            <option value="Claro">Claro</option>
+                                            <option value="Bitel">Bitel</option>
+                                            <option value="Tuenti">Tuenti</option>
+                                            <option value="Telcel">Telcel</option>
+                                            <option value="Tim">Tim</option>
+                                            <option value="Nextel">Nextel</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label for="">Tecnico</label>
+                                        <select name="add_tecnico_disponible" id="add_tecnico_disponible" class="form-control" required>
+                                            <option value="" hidden>Seleccione un operador</option>
+                                        </select>
+                                        <div id="HelpTecnicos" class="form-text">
+                                            <a target="_blank" class="text-decoration-none" href="../tecnicos">Ver lista de Tecnicos</a>
+                                        </div>
                                     </div>
                                     <hr>
                                     <button type="submit" class="btn btn-sm btn-primary mt-3">
@@ -181,11 +191,29 @@
                                     </button>
                                 </form>
                             </div>
-                            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
 
-                            </div>
-                            <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
-
+                            <div class="tab-pane fade" id="reparacion_pago" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                                <div class="form-group mt-3">
+                                <form id="frm_pago">
+                                    <label for="">Monto pagado</label>
+                                    <input type="number" class="form-control" id="add_monto" name="add_monto" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="">Fecha de pagado</label>
+                                    <input type="date" class="form-control" id="add_fec_pag" name="add_fec_pag" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="">Número de Operación</label>
+                                    <input type="text" class="form-control" id="add_nro_ope" name="add_nro_ope" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="">Confirmación del Cliente (escriba SI)</label>
+                                    <input type="text" class="form-control" id="add_confirmacion" name="add_confirmacion" required>
+                                </div>
+                                <hr>
+                                <button type="submit" class="btn btn-sm btn-success">
+                                    <i class="fa fa-save"></i> Guardar
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -206,10 +234,10 @@
                         href="https://gerardogp.github.io/" target="_blank">gegp</a></p>
             </div>
         </footer>
-        <!-- <script src="./index.js"></script>
-    <script src="./database.js"></script>
+        <script src="./index.js"></script>
+    <!-- <script src="./database.js"></script>
     <script src="./app/celular.js"></script> -->
         <script src="../../app/database.js"></script>
-        <script src="./servicios.js"></script>
+        <script src="./reparaciones.js"></script>
     </body>
 </html>
