@@ -10,19 +10,23 @@ const DOM = function () {
         crearEstructura();
         crearSelector();
     }
+        
 
-    function crearSelector(){
+    //lista
+    function crearSelector()
+    {
         const sel = document.createElement("select");
-        productos.forEach(element => {
+        productos.forEach(element =>
+          {
             console.log(element.nombre)
             const opt1 = document.createElement("option");
             opt1.value = element.id;
             opt1.text = element.nombre;
             sel.add(opt1);
-        });
+          });
 
 
-        
+        // div selector imagen
         let selector = document.getElementById("selector")
         selector.setAttribute("id","sel_productos");
         selector.appendChild(sel);
@@ -32,7 +36,8 @@ const DOM = function () {
         });
     }
 
-    function cargarImagen(id){
+    function cargarImagen(id)
+    {
         let objProducto = productos.filter(x => x.id == id);
         console.log(objProducto[0])
         let strHtml =  `<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-4">
@@ -58,10 +63,13 @@ const DOM = function () {
         let imgdiv = document.getElementById("imagen");
         imgdiv.innerHTML = strHtml;
     }
-    function eventos(){
-     }
-    function crearEstructura(){
-        objProducto={
+    function eventos()
+    {
+    }
+    function crearEstructura()
+    {
+        objProducto=
+        {
             id:1,
             nombre:"RX-78-2",
             descuento:20,
@@ -69,7 +77,8 @@ const DOM = function () {
             img:"img/4.jpg"
         }
         productos.push(objProducto);
-        objProducto={
+        objProducto=
+        {
             id:2,
             nombre:"AERIAL",
             descuento:15,
