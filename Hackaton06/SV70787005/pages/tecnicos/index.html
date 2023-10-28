@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin :: Servicios</title>
+        <title>Admin :: Celulares</title>
         <!-- INICIO BOOTSTRAP -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -51,37 +51,23 @@
                             class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page"
-                                    href="../admin/"><i class="fa-solid fa-house"></i> Inicio</a>
+                                    href="../admin"><i class="fa-solid fa-house"></i>
+                                    Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i
-                                        class="fa-solid fa-building"></i> Servicios</a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="#"><i
-                                        class="fa-solid fa-store"></i>
-                                    Sucursales</a>
+                                <a class="nav-link" href="../reparaciones"><i
+                                        class="fa-solid fa-building"></i> Reparaciones</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i
-                                        class="fa-solid fa-address-book"></i>
-                                    Contacto</a>
-                            </li> -->
+                                <a class="nav-link" href="../tecnicos"><i class="fa-solid fa-address-book"></i> Tecnicos</a>
+                            </li>
                             <hr>
                             <li class="nav-item">
-                                <a class="nav-link" href="./index.html"><i
+                                <a class="nav-link" href="../../"><i
                                         class="fa-solid fa-right-to-bracket"></i>
                                     Cerrar Sesion</a>
                             </li>
                         </ul>
-                        <form class="d-flex mt-3" role="search"
-                            id="frm_consultar_tramite">
-                            <input class="form-control me-2" id="inpt_cod_tram"
-                                type="search" placeholder="Codigo de consulta"
-                                aria-label="Search">
-                            <button class="btn btn-success" type="submit"><i
-                                    class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -92,31 +78,38 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="./admin.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Celulares Bloqueados</li>
+                  <li class="breadcrumb-item active" aria-current="page">Técnicos</li>
                 </ol>
             </nav>
             <br>
             <div class="row">
-                <div class="col-lg-10 mx-auto">
+                <div class="col-lg-8 mx-auto">
                     <div class="card">
                         <div class="card-header">
-                            <button class="btn btn-sm btn-primary" onclick="$('#exampleModal').modal('show')">Agregar</button>
+                            <div class="">
+                                <span class="card-title">Técnicos</span>
+                                <button class="btn btn-sm btn-primary float-end" onclick="$('#exampleModal').modal('show')"><i class="fa fa-plus"></i> Agregar</button>
+                            </div>
                         </div>
                         <div class="card-body">
-                            <label for="" class="card-title">Celulares Bloqueados</label>
                             <div class="overflow-auto">
                                 <table class="table table-striped">
                                     <thead style="background-color:#000064;color:white;">
                                         <th>N°</th>
-                                        <th>Codigo</th>
-                                        <th>Cliente</th>
-                                        <th>Celular</th>
-                                        <th>Diagnosticos</th>
-                                        <th>Fecha de Registro</th>
-                                        <th>Editar</th>
+                                        <th>Apellidos</th>
+                                        <th>Nombres</th>
+                                        <th>Dni</th>
+                                        <th>Skills</th>
+                                        <th>Acción</th>
                                     </thead>
-                                    <tbody id="tbody_servicios">
-                                        <tr><td class="text-center" colspan="5">...</td></tr>
+                                    <tbody id="tbody_tecnicos">
+                                      <tr>
+                                        <td class="text-center" colspan="6">
+                                          <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                          </div>
+                                        </td>
+                                      </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -131,19 +124,27 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Servicio</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Tenico</h1>
                         <button type="button" class="btn-close"
                             data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group mt-3">
-                        <form id="frm_agregar_imei">
-                                <label for>Numero IMEI</label>
-                                <input type="text" minlength="9" class="form-control" required id="add_imei" name="add_imei" autocomplete="off">
+                        <form id="frm_agregar_tecnico">
+                                <label for="add_nombres">Nombres</label>
+                                <input type="text" class="form-control" required id="add_nombres" name="add_nombres" autocomplete="off">
                             </div>
                             <div class="form-group mt-3">
-                                <label for="">Operador</label>
-                                <select name="add_operador" id="add_operador" class="form-control" required>
+                              <label for="frm_apellidos">Apellidos</label>
+                              <input type="text" class="form-control" id="add_apellidos" name="add_apellidos" required>
+                            </div>
+                            <div class="form-group mt-3">
+                              <label for="">D.N.I</label>
+                              <input type="text" class="form-control" id="add_dni" name="add_dni" required minlength="8">
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="add_skills">Skills</label>
+                                <select name="add_skills" id="add_skills" class="form-select" required multiple>
                                     <option value="" hidden>Seleccione</option>
                                     <option value="Movistar">Movistar</option>
                                     <option value="Entel">Entel</option>
@@ -155,15 +156,11 @@
                                     <option value="Nextel">Nextel</option>
                                 </select>
                             </div>
-                            <div class="form-group mt-3">
-                                <label for="">Motivo</label>
-                                <input type="text" required id="add_motivo" name="add_motivo" class="form-control" autocomplete="off">
-                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Consultar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
                         </form>
                     </div>
                 </div>
@@ -187,8 +184,8 @@
     <!-- <script src="./index.js"></script>
     <script src="./database.js"></script>
     <script src="./app/celular.js"></script> -->
-    <script src="./index.js"></script>
+
     <script src="../../app/database.js"></script>
-    <script src="./servicios.js"></script>
+    <script src="./tecnicos.js"></script>
     </body>
 </html>
