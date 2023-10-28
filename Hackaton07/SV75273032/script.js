@@ -24,4 +24,4 @@ app.get('/github/:username', async (req, res) => {
 // Inicia el servidor
 app.listen(port, () => {
   console.log(`Servidor en ejecución en el puerto ${port}`);
-});
+}); 
