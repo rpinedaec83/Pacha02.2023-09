@@ -25,8 +25,7 @@ Utilizar SQL DML y DDL para definir las consultas mediante el uso de Objetos de 
 Revisa las tablas Customers (clientes), Employees (empleados) y Orders (pedidos)
 
 - ¿Cuántos clientes hay registrados?
-    select count(customerid) from customers;   
-
+    - select count(customerid) from customers;   
 - ¿Cuántos pedidos?
 
 - ¿Qué clientes viven en Londes y su nombre (CustomerName) empieza por A?
@@ -44,19 +43,11 @@ Revisa las tablas Customers (clientes), Employees (empleados) y Orders (pedidos)
 - Dime los paises que tengan más de 5 clientes, ordenados por el nombre de país
 
 #### Ejercicios con más de una tabla
-Revisa las tablas Customers (clientes), Employees (empleados) y Orders (pedidos)
-
 - Dime el nombre del cliente del pedido 10360
-select * from orders,customers
-where orderID like '10360';
 
 - Dime el nombre completo de los clientes con los pedidos 10360, 10253 y 10440
 
-select * from orders,customers
-where orderID like '10360','10253','10440'
-
 - Dime las ciudades y número de pedidos de clientes en esa ciudad
-
 
 - ¿Cuales son las ciudades desde las que hay más de 7 pedidos?
 
@@ -73,7 +64,6 @@ where orderID like '10360','10253','10440'
 - Quiero saber los clientes que hayan hecho más de un pedido y que hayan sido registrado por un Empleado cuyo nombre sea Margaret.
 
 #### Ejercicios con Subconsultas
-Revisa las tablas Customers (clientes), Employees (empleados) y Orders (pedidos)
 - ¿Cual es el producto con el precio mínimo más bajo? (usando subconsultas)
 
 - ¿Cual es el producto cuyo precio sea al menos 10 veces el pedido mínimo (quantity) de los pedidos (OrderDetails)?
