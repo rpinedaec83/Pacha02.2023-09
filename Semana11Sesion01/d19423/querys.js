@@ -6,8 +6,19 @@ const getAllActors = async () =>{
 }
 
 const getAllActorsByFilter = async (filter) =>{
-    const [query] = await connection.execute(`select * from actor where first_name like '%${filter}%' or last_name like '%${filter}%';`);
-    return query;
+    console.log(filter);
+    const filtro = filter.filter;
+
+    const porPagina = filter._ipg;
+    const desdePagina = filter._pgn;
+    if(filtro=='all'){
+        const [query] = await connection.execute(`select * from actor LIMIT ${desdePagina}, ${ porPagina};`);
+        return query;
+    }
+    else{
+        const [query] = await connection.execute(`select * from actor where first_name like '%${filtro}%' or last_name like '%${filtro}%' LIMIT ${desdePagina}, ${ porPagina};`);
+        return query;
+    }
 }
 
 const getActorById = async (id) =>{
@@ -15,4 +26,37 @@ const getActorById = async (id) =>{
     return query;
 }
 
-module.exports = {getAllActors, getActorById, getAllActorsByFilter}
+const createActor = async(first_name, last_name) =>{
+    const [query] = await connection.execute(`insert into Actor(first_name, last_name) values(?,?)`, [first_name,last_name]);
+    const item = await getActorById(query.insertId)
+    return item;
+}
+
+const updateActor = async(id, first_name, last_name)=>{
+
+    const item = await getActorById(id)
+    if(item.length === 0){
+        return null;
+    }
+    const [query] = await connection.execute(`update  Actor set first_name = ?, last_name = ? where actor_id = ?`, [first_name,last_name,id]);
+    return query;
+}
+
+const deleteActor = async(id)=>{
+    const item = await getActorById(id)
+    if(item.length === 0){
+        return null;
+    }
+    const [query] = await connection.execute(`delete from  Actor  where actor_id = ?`, [id]);
+    return query;
+}
+
+
+module.exports = {
+    getAllActors, 
+    getActorById, 
+    getAllActorsByFilter,
+    createActor,
+    updateActor,
+    deleteActor
+}
