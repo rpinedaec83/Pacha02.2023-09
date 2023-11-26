@@ -27,28 +27,31 @@ Revisa las tablas Customers (clientes), Employees (empleados) y Orders (pedidos)
 - ¿Cuántos clientes hay registrados?
     - select count(customerid) from customers;   
 - ¿Cuántos pedidos?
-
+    - select count(OrderID)   from   orders;
 - ¿Qué clientes viven en Londes y su nombre (CustomerName) empieza por A?
-
-- ¿Cuántos clientes hay que son de Londres?
-
+    - select * from customers 
+     where Country = 'Londes' and CustomerName like 'A%' ;
 - ¿Cuántos clientes hay en cada ciudad?
-
+    - select count(City) from customers;
 - ¿Cuántos empleados nacieron después de 1 de Junio del 1965?
-
+    - select * from employees
+    where birthdate >= '1965-06-01' 
 - Hazme un informe que diga «El empleado N nació el N», siendo N, nombre (FirstName y Last Name) y día de nacimiento (BirthDate)
 
 - Hazme el informe anterior, pero sólo para los empleados con id 8, 7, 3 y 10
-
+    - select * from employees
+    where EmployeeId  in( 8, 7, 3,10);
 - Dime los paises que tengan más de 5 clientes, ordenados por el nombre de país
 
 #### Ejercicios con más de una tabla
 - Dime el nombre del cliente del pedido 10360
-
+    - select * from orders
+    where orderid= "10360";
 - Dime el nombre completo de los clientes con los pedidos 10360, 10253 y 10440
-
+    - select * from orders
+    where orderid in ( "10360", "10253" , "10440")
 - Dime las ciudades y número de pedidos de clientes en esa ciudad
-
+    - SELECT  City,customerid FROM customers
 - ¿Cuales son las ciudades desde las que hay más de 7 pedidos?
 
 - ¿Cuales son los tres países desde los que tengo más pedidos?
@@ -67,7 +70,8 @@ Revisa las tablas Customers (clientes), Employees (empleados) y Orders (pedidos)
 - ¿Cual es el producto con el precio mínimo más bajo? (usando subconsultas)
 
 - ¿Cual es el producto cuyo precio sea al menos 10 veces el pedido mínimo (quantity) de los pedidos (OrderDetails)?
-
+    - SELECT productname,price from products
+        order by price  
 - ¿Cuales son los registros de productos (Products) cuyo precio (price) sea mayor que el máximo de los precios de los productos cuyo id sea 3, 6, 9 y 10?
 
 - ¿Cuales son los registros de productos (Products) cuyo ProductID sea un valor que esté en Shippers.ShipperID?
