@@ -31,7 +31,7 @@ La empresa de produccion de armarios necesita llevar el control de las siguiente
 - Gestion de personal
 - Produccion
 
-Se debe crear la base de datos (el nombre va aser su codigo de alumno), los store procedures(CRUD), functions y triggers (de auditoria de las tablas importantes)
+Se debe crear la base de datos (el nombre va a ser su codigo de alumno), los store procedures(CRUD), functions y triggers (de auditoria de las tablas importantes)
 
 el entregable va a ser el respaldo de la base de datos (dump)
 
