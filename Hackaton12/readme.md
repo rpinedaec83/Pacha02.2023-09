@@ -1,6 +1,6 @@
 # HACKATHON SEMANAL
 
-## LOGRO: Utilizar USAR SQL DML DDL. 
+## LOGRO: Utilizar MongoDB, Mongoose y NodeJS. 
 
 ### I.	Es hora de demostrar lo aprendido:
 Demostrarás todo lo aprendido en este reto que se basará en las clases dictadas durante la semana.
@@ -10,7 +10,7 @@ Demostrarás todo lo aprendido en este reto que se basará en las clases dictada
 
 ### III.	Descripción del reto
 - Investigar y resolver las preguntas y ejercicios planteados
-- Resolver problemas, definir algoritmos, utilizando las nuevas funcionalidades NodeJS y API
+- Resolver problemas, definir algoritmos, utilizando las nuevas funcionalidades NodeJS, MongoDB, Mongoose y API
 
 ### IV.	Pasos a seguir para resolver los retos: 
 
@@ -18,22 +18,11 @@ Demostrarás todo lo aprendido en este reto que se basará en las clases dictada
 
 ## Reto 1:
 
-### TÍTULO: Base de Datos
-Utilizar SQL DML y DDL para definir las consultas mediante el uso de Objetos de Base de datos para resolver el problema
+### TÍTULO: Base de Datos No Relacionales con ORM
 
-EL PROBLEMA: 
-Se necesita crear una base de datos que tenga las siguientes caracteristicas:
-
-La empresa de produccion de armarios necesita llevar el control de las siguientes rutinas:
-
-- Compra de Materia Prima
-- Compra de Insumos
-- Gestion de personal
-- Produccion
-
-Se debe crear la base de datos (el nombre va a ser su codigo de alumno), los store procedures(CRUD), functions y triggers (de auditoria de las tablas importantes)
-
-el entregable va a ser el respaldo de la base de datos (dump)
+- Crear los modelos de cada tabla
+- Crear una ruta por cada tabla
+- Crear una API de CRUD por cada tabla
 
 ### V.	Solución del reto
 - Para que el reto esté cumplido al 100%, se deben haber resuelto el ejercicio propuesto
