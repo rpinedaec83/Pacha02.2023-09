@@ -7,7 +7,7 @@ router.get('/',async(req,res)=>{
 });
 router.get('/:id',async(req,res)=>{
     const {id} = req.params;
-    const query=await querys.getUsuarioId(id);
+    const query=await querys.getUsuarioLogId(id);
     if(query.length === 0){
         return  res.status(400).json({messge: 'no encontrado'});
     }
@@ -15,12 +15,12 @@ router.get('/:id',async(req,res)=>{
 });
 router.post('/',async(req,res)=>{
 const {username,email,nombre,apellido,estadocivil,fechanacimineto,edad,activo,usuariocreacion}=req.body;
-const query=await querys.createNacionalidad(username,email,nombre,apellido,estadocivil,fechanacimineto,edad,activo,usuariocreacion);
+const query=await querys.createUsuarioLog(username,email,nombre,apellido,estadocivil,fechanacimineto,edad,activo,usuariocreacion);
 return res.status(202).json(query);
 });
 router.put('/',async(req,res)=>{
     const {id,username,email,nombre,apellido,estadocivil,fechanacimineto,edad,activo,usuariocreacion}= req.body;
-    const query =await querys.updateNacionalidad(id,username,email,nombre,apellido,estadocivil,fechanacimineto,edad,activo,usuariocreacion);
+    const query =await querys.updateUsuarioLog(id,username,email,nombre,apellido,estadocivil,fechanacimineto,edad,activo,usuariocreacion);
     if (query===null){
         return res.status(400).json({message:'  no encontrado'});
     }
