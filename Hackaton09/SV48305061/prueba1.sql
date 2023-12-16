@@ -81,3 +81,27 @@ select * from produccion;
 
 create database SV48305061;
 USE SV48305061;
+ create table if not exists tabla1(
+ id int  primary key auto_increment,
+ nombre varchar(225),
+ apellido varchar(225)
+ );
+insert into  tabla1(nombre, apellido)  values   ('junior','arango');
+select concat(nombre,apellido) as cliente from    tabla1;
+
+
+
+use  veterinaria;
+select * from veterinaria.Propietario;
+select * from veterinaria.Mascota;
+select * from .especie;
+insert into veterinaria.especie(descripcion,activo,usuariocreacion) values ("toro",1,1);
+select * from veterinaria.bckubigeo where ubigeo = 140114;
+select * from veterinaria.nacionalidad;
+select * from veterinaria.raza;
+select * from veterinaria.sexo;
+select * from veterinaria.ubigeo;
+select * from veterinaria.usuario;
+select * from veterinaria.usuario_log;
+select * from hackaton13.logins;
+drop database  hackaton13

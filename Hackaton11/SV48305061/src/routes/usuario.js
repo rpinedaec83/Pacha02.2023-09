@@ -7,7 +7,7 @@ router.get('/',async(req,res)=>{
 })
 router.get('/:id',async(req,res)=>{
     const {id} = req.params;
-    const query=await querys.getNacionalidadId(id);
+    const query=await querys.getUsuarioId(id);
     if(query.length === 0){
         return  res.status(400).json({messge: 'no encontrado'});
     }
