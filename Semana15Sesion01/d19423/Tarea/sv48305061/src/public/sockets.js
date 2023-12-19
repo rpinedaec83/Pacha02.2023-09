@@ -5,10 +5,11 @@ const socket = io.connect();
  * @param {string} title a title for a new note
  * @param {string} description a description for a new note
  */
-export const saveNote = (title, description) => {
+export const saveNote = (title, description,user) => {
   socket.emit("client:newnote", {
     title,
     description,
+    user
   });
 };
 
@@ -25,12 +26,14 @@ export const deleteNote = (id) => {
  * @param {string} id note ID
  * @param {string} title note title
  * @param {string} description note description
+ * @param {string} user note user
  */
-export const updateNote = (_id, title, description) => {
+export const updateNote = (_id, title, description,user) => {
   socket.emit("client:updatenote", {
     _id,
     title,
     description,
+    user
   });
 };
 

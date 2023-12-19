@@ -32,6 +32,7 @@ export default (io) => {
         await Note.findByIdAndUpdate(updatedNote._id, {
           title: updatedNote.title,
           description: updatedNote.description,
+          user: updatedNote.user,
         });
         emitNotes();
       });

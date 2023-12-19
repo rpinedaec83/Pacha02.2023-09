@@ -3,6 +3,7 @@ import { deleteNote, getNoteById, saveNote, updateNote } from "./sockets.js";
 const notesList = document.querySelector("#notes");
 const title = document.querySelector("#title");
 const description = document.querySelector("#description");
+const user = document.querySelector("#user");
 
 let savedId = "";
 
@@ -18,6 +19,7 @@ const noteUI = (note) => {
           </div>
       </div>
       <p>${note.description}</p>
+      <p>${note.user}</p>
   </div>
 `;
   const btnDelete = div.querySelector(".delete");
@@ -42,6 +44,7 @@ export const appendNote = (note) => {
 export const fillForm = (note) => {
   title.value = note.title;
   description.value = note.description;
+  user.value=note.user;
 
   savedId = note._id;
 };
@@ -49,11 +52,12 @@ export const fillForm = (note) => {
 export const onHandleSubmit = (e) => {
   e.preventDefault();
   if (savedId) {
-    updateNote(savedId, title.value, description.value);
+    updateNote(savedId, title.value, description.value, user.value);
   } else {
-    saveNote(title.value, description.value);
+    saveNote(title.value, description.value,user.value);
   }
 
   title.value = "";
   description.value = "";
+  user.value="";
 };
