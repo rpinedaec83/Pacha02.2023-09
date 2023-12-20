@@ -4,6 +4,7 @@ const socket = io.connect();
  * create a new note
  * @param {string} title a title for a new note
  * @param {string} description a description for a new note
+ * @param {string} user a user for a new note
  */
 export const saveNote = (title, description,user) => {
   socket.emit("client:newnote", {
