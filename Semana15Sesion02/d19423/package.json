@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js --exec babel-node --ignore public",
-    "build": "babel . -d dist --copy-files",
+    "dev": "nodemon src/server.js --exec babel-node --ignore src/public",
+    "build": "babel src -d dist --copy-files",
     "start": "node dist"
   },
   "keywords": [],
