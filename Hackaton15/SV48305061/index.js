@@ -5,8 +5,10 @@ require('dotenv').config()
 const express = require('express');
 const { join } = require('node:path');
 const { Server } = require('socket.io');
-const {createMensaje}=require('./src/controllers/controlles')
 const app = express();
+const server = createServer(app);
+const io = new Server(server,{ connectionStateRecovery: {}});
+const {createMensaje}=require('./src/controllers/controlles')
 
 
 app.use(express.json());
@@ -31,22 +33,18 @@ app.get('/auth/google',
 app.get('/google/callback',
   passport.authenticate('google', {
     successRedirect: '/success',
-    failureRedirect: '/auth/failure'
-  }),
-  (req, res) => {
-    res.redirect('/');
-  }
+    failureRedirect: '/auth/google/failure'
+  })
 );
 app.get('/success',isLoggedIn,(req,res)=>{
   res.sendFile(join(__dirname, './src/public/index.html'));
 })
-app.get('/auth/failure', (req, res) => {
+app.get('/auth/google/failure', (req, res) => {
   res.send('Failed to authenticate..');
 });
 
 
-const server = createServer(app);
-const io = new Server(server,{ connectionStateRecovery: {}});
+
 io.on("connection", (socket) => {
   console.log("usuario conectado");
   socket.on("chat message", (msg) => {
