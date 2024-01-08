@@ -15,11 +15,10 @@ conexion.getConnection(function (err) {
     console.log('Conectado exitosamente a la base de datos');
 });
 
-conexion.query('create table  IF NOT EXISTS servisMenssage (id int NOT NULL primary KEY auto_increment, usuario varchar(255),destino varchar(255),mensaje varchar(600),ubicacion varchar(255))'), function (erro, results) {
-    if (erro) {
-        console.error('Error al crear la tabla:', erro);
-    } else {
-        console.log('Tabla creada:', results);
-    }
-}
+conexion.query('create table IF NOT EXISTS Mensajes (id int NOT NULL primary KEY auto_increment,usuario varchar(225),destino varchar(225), mensage varchar(500))'), function (erro, results) {
+    if (err) {
+        console.error('Error al crear la tabla:', err);
+        console.log(query);
+    }};
+
 module.exports = conexion;
