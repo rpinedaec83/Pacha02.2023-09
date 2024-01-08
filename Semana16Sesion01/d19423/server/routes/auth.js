@@ -18,6 +18,7 @@ const schemaLogin = Joi.object({
 router.post('/login', async (req, res) => {
     // validaciones
     const { error } = schemaLogin.validate(req.body);
+    console.log(req.body)
     if (error) return res.status(400).json({ error: error.details[0].message })
     
     const user = await User.findOne({ email: req.body.email });
@@ -41,7 +42,7 @@ router.post('/login', async (req, res) => {
 router.post('/register', async (req, res) => {
 
     const { error } = schemaRegister.validate(req.body)
-
+    console.log(req.body)
     if (error) {
         return res.status(400).json(
             { error: error.details[0].message }
