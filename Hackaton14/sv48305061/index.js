@@ -9,7 +9,7 @@ const io = new Server(server,{ connectionStateRecovery: {}});
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(join(__dirname, 'index.html'));
+    res.sendFile(join(__dirname, './src/public/index.html'));
   });
 
   io.on("connection", (socket) => {
