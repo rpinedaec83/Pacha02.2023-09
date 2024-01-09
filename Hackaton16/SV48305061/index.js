@@ -22,7 +22,7 @@ function isLoggedIn(req, res, next) {
   req.user ? next() : res.sendStatus(401);
 }
 app.get('/', (req, res) => {
-  res.send('<br><a href="/auth/google">Authenticate with Google</a> <br><a href="/auth/github">Authenticate withgithub</a><br><a href="/auth/linkedin">Authenticate with linkedin</a>');
+  res.send('<br><a href="/auth/google">Authenticate with Google</a> <br><a href="/auth/github">Authenticate withgithub</a><br><a href="/auth/linkedin">Authenticate with linkedin</a><br><a href="/auth/facebook">Authenticate with facebook</a>');
 });
 
 //GOOGLE
@@ -36,9 +36,7 @@ app.get('/google/callback',
     failureRedirect: '/auth/google/failure'
   })
 );
-app.get('/success',isLoggedIn,(req,res)=>{
-  res.sendFile(join(__dirname, './src/public/index.html'));
-})
+
 app.get('/auth/google/failure', (req, res) => {
   res.send('Failed to authenticate..');
 });
@@ -52,9 +50,7 @@ app.get('/github/callback',
     failureRedirect: '/auth/github/failure'
   })
 );
-app.get('/success',isLoggedIn,(req,res)=>{
-  res.sendFile(join(__dirname, './src/public/index.html'));
-});
+
 app.get('/auth/github/failure', (req, res) => {
   res.send('Failed to authenticate..');
 });
@@ -71,10 +67,23 @@ app.get('/auth/linkedin',
     failureRedirect: '/auth/linkedin/failure'
   })
 );
+
+app.get('/auth/linkedin/failure', (req, res) => {
+  res.send('Failed to authenticate..');
+});
+//FACEBOOK
+app.get('/auth/facebook',
+  passport.authenticate('facebook'));
+  app.get('/facebook/callback',
+  passport.authenticate('facebook', {
+    successRedirect: '/success',
+    failureRedirect: '/auth/facebook/failure'
+  })
+);
 app.get('/success',isLoggedIn,(req,res)=>{
   res.sendFile(join(__dirname, './src/public/index.html'));
 });
-app.get('/auth/linkedin/failure', (req, res) => {
+app.get('/auth/facebook/failure', (req, res) => {
   res.send('Failed to authenticate..');
 });
 

@@ -1,9 +1,9 @@
 const passport = require('passport');
 const {conexion}=require('./src/database/db')
 const  GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
-GitHubStrategy=require('passport-github2').Strategy;
-var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
-
+const GitHubStrategy=require('passport-github2').Strategy;
+const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
+const FacebookStrategy=require('passport-facebook').Strategy;
 require('dotenv').config();
 
 
@@ -35,6 +35,15 @@ passport.use(new GoogleStrategy({
     return done(null, profile);
   }));
 
+  passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_APP_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
+    callbackURL: "http://localhost:4000/facebook/callback"
+  },
+  function(request, accessToken, refreshToken, profile, done) {
+    return done(null, profile);
+  }));
+  
   passport.serializeUser(function(user, done) {
     done(null, user);
   });
