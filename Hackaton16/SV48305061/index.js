@@ -22,10 +22,10 @@ function isLoggedIn(req, res, next) {
   req.user ? next() : res.sendStatus(401);
 }
 app.get('/', (req, res) => {
-  res.send('<br><a href="/auth/google">Authenticate with Google</a>');
+  res.send('<br><a href="/auth/google">Authenticate with Google</a> <br><a href="/auth/github">Authenticate withgithub</a><br><a href="/auth/linkedin">Authenticate with linkedin</a>');
 });
 
-
+//GOOGLE
 app.get('/auth/google',
   passport.authenticate('google', { scope: [ 'email', 'profile' ] }
 ));
@@ -42,8 +42,41 @@ app.get('/success',isLoggedIn,(req,res)=>{
 app.get('/auth/google/failure', (req, res) => {
   res.send('Failed to authenticate..');
 });
+//GITHUB
+app.get('/auth/github',
+  passport.authenticate('github', { scope: [ 'user:email' ] }));
 
-
+app.get('/github/callback',
+  passport.authenticate('github', {
+    successRedirect: '/success',
+    failureRedirect: '/auth/github/failure'
+  })
+);
+app.get('/success',isLoggedIn,(req,res)=>{
+  res.sendFile(join(__dirname, './src/public/index.html'));
+});
+app.get('/auth/github/failure', (req, res) => {
+  res.send('Failed to authenticate..');
+});
+//LINKEDIN
+app.get('/auth/linkedin',
+  passport.authenticate('linkedin', { state: 'SOME STATE'  }),
+  function(req, res){
+    // The request will be redirected to LinkedIn for authentication, so this
+    // function will not be called.
+  });
+  app.get('/linkedin/callback',
+  passport.authenticate('linkedin', {
+    successRedirect: '/success',
+    failureRedirect: '/auth/linkedin/failure'
+  })
+);
+app.get('/success',isLoggedIn,(req,res)=>{
+  res.sendFile(join(__dirname, './src/public/index.html'));
+});
+app.get('/auth/linkedin/failure', (req, res) => {
+  res.send('Failed to authenticate..');
+});
 
 io.on("connection", (socket) => {
   console.log("usuario conectado");
@@ -53,6 +86,9 @@ io.on("connection", (socket) => {
     io.emit("chat message", msg);
   });
 });
+
+
+
 
 PORT = process.env.portserver;
 server.listen(PORT, () => {
