@@ -1,5 +1,25 @@
 # Dockerizing a Node.js Application Example
 
+
+```bash
+$ docker build -t addressbook .
+$ docker run -it -p 9000:9000 addressbook
+```
+
+```bash
+$ docker-compose run addressbook npm test
+```
+
+## Run with Docker Compose: app + database
+
+```bash
+$ docker-compose run addressbook npm run migrate
+$ docker-compose up --build
+```
+
+
+
+
 [![Build Status](https://tomfern.semaphoreci.com/badges/dockerizing-nodejs/branches/master.svg)](https://tomfern.semaphoreci.com/projects/dockerizing-nodejs)
 
 This is an example project for the following post in the Semaphore CI/CD blog:
@@ -52,20 +72,20 @@ curl -X GET http://localhost:3000/persons -H 'Content-Type: application/json'
 
 ```bash
 $ docker build -t addressbook .
-$ docker run -it -p 3000:3000 addressbook
+$ docker run -it -p 9000:9000 addressbook
 ```
 
 ## Run with Docker Compose: app + database
 
 ```bash
-$ docker compose run addressbook npm run migrate
-$ docker compose up --build
+$ docker-compose run addressbook npm run migrate
+$ docker-compose up --build
 ```
 
 ## Run tests with Docker
 
 ```bash
-$ docker compose run addressbook npm test
+$ docker-compose run addressbook npm test
 ```
 
 ## LICENSE
