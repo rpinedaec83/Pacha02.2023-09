@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 require('dotenv').config()
 const { join } = require('node:path');
 const registroRoutes = require('./src/routes/registros.routes');
+const comprasRoutes = require('./src/routes/compras.routes');
 const ProductoRoutes = require('./src/routes/productos.routes');
 const Compra =require('./src/models/compras.models')
 const Usuarios =require('./src/models/usuarios.models')
@@ -174,8 +175,10 @@ app.get('/home', (req, res) => {
 });
 
 // Rutas para Registro y Producto
+
 app.use('/productos', ProductoRoutes);
 app.use('/registros', registroRoutes);
+app.use('/compras', comprasRoutes);
 const PORT = process.env.PORT;
 
 app.listen(PORT, () => {

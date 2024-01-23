@@ -21,5 +21,13 @@ router.post('/', async (req, res) => {
         return res.status(400).send('Todos los campos son obligatorios');
     }
 });
-
+router.get('/',async(req,res)=>{
+    try {
+        const ReadAllRegistros=await usuarios.findAll()
+        res.status(200).json(ReadAllRegistros)
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error:'error obtenido de usuarios'})
+    }
+});
 module.exports = router;
