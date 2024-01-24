@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  localhost:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Pyfinal
+      MYSQL_DATABASE: db.sql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: final
+
+  app:
+    build:
+      context: .
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=final
+      - DB_NAME=Pyfinal
+    ports:
+      - "9000:9000"
+    depends_on:
+      - db
